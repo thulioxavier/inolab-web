@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, StyleSheet } from "react";
+import { connect } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Container, DashboardHeader } from "./components";
+import { appRoutes as AppRoutes, dashboardRoutes as DashboardRoutes, notFoundRoutes as NotFoundRoutes } from "./routes/router";
 
-function App() {
+export const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <AppRoutes />
+      </Router>
+      <DashboardRoutes/>
+    </Fragment>
   );
 }
-
-export default App;
