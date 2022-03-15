@@ -34,3 +34,39 @@ export const NotFoundInfo = styled.h3`
     text-align: center;
     margin-top: 0;
 `;
+
+export const Button = styled.button`
+
+    margin-top: 15px;
+    
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+
+    background-color: #00C880;
+    border: 2px solid transparent;
+
+    padding: 0 5px;
+    color: #FFFF;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.6s;
+
+    ${({disabled}) => (
+
+        disabled ? `
+            opacity: 0.5;
+            cursor: not-allowed
+
+        ` :
+        `:hover{
+        background-color: #121214;
+        border: 2px solid #00C880;
+        color: #00C880;
+
+        cursor: pointer;
+    }`
+    )}
+    
+
+`;

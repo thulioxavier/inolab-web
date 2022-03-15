@@ -139,7 +139,6 @@ export const Error = styled.span`
     font-weight: 600;
     font-size: 13.5px;
     margin-top: 3px;
-
 `;
 
 export const Button = styled.button`
