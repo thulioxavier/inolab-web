@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "../../utils";
 
 export const Container = styled.div`
     width: 100%;
@@ -10,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const NotFound = styled.h1`
-    color: #FAFAFA;
+    color: ${COLORS.black};
+
     font-size: 120px;
     text-align: center;
 
@@ -18,7 +20,8 @@ export const NotFound = styled.h1`
 `;
 
 export const NotFoundSub = styled.h2`
-    color: #FAFAFA;
+    color: ${COLORS.black};
+
     font-size: 40px;
     font-weight: 200;
     margin-bottom: 15px;
@@ -28,7 +31,8 @@ export const NotFoundSub = styled.h2`
 `;
 
 export const NotFoundInfo = styled.h3`
-    color: #FAFAFA;
+    color: ${COLORS.black};
+
     font-weight: 500;
     font-size: 18px;
     text-align: center;
@@ -52,14 +56,14 @@ export const Button = styled.button`
     font-weight: bold;
     transition: 0.6s;
 
-    ${({disabled}) => (
+    ${({ disabled }) => (
 
         disabled ? `
             opacity: 0.5;
             cursor: not-allowed
 
         ` :
-        `:hover{
+            `:hover{
         background-color: #121214;
         border: 2px solid #00C880;
         color: #00C880;

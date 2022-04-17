@@ -9,9 +9,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #121214;
+  background-color: #f0f0f5;
 
+  
+}
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dadada; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(75, 75, 75); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+
+  cursor: pointer;
 }
 
 code {

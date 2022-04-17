@@ -7,11 +7,12 @@ export const Login = () => {
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    
     const [error, setError] = useState({
         status: false,
         email: null,
         password: null,
-    })
+    });
 
     const handleSubmit = async (event) => {
 

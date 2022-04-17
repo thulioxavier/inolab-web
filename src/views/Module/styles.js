@@ -91,7 +91,6 @@ export const TableArea = styled.div`
     width: 100%;
     height: 500px;
     overflow-y: scroll;
-    margin-top: 30px;
 `;
 
 

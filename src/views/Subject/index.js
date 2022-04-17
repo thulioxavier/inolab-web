@@ -1,14 +1,35 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Container } from "../../components";
 import { getSubjects, postSubject } from "../../services/server";
-import { render } from "react-dom";
 import { Dots } from "react-activity";
 import "react-activity/dist/library.css";
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    IconButton,
+    Input,
+    Stack,
+    Button,
+    InputGroup,
+    InputLeftAddon,
+    InputRightElement,
+    useToast
+} from '@chakra-ui/react';
+
 
 import *as C from './styles';
 import { useNavigate } from "react-router-dom";
+import { COLORS } from "../../utils";
+import { ViewOffIcon, ViewIcon, EditIcon, ArrowForwardIcon, CheckIcon } from "@chakra-ui/icons";
 
 export const Subject = () => {
+    const toast = useToast();
     const navigate = useNavigate();
     const [subject, setSubject] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -58,8 +79,18 @@ export const Subject = () => {
                         if (response.status) {
                             successful.msg = `Matéria Cadastrada:${response.data.name}`;
                             setSuccessful({ ...successful });
-
-                            navigate("/auth/sign-in");
+                            error.status = false;
+                            error.request = null;
+                            setError({ ...error });
+                            setLoading(false);
+                           
+                            toast({
+                                title: 'Matéria Criada',
+                                description: "Sua Matéria foi cadastrada com sucesso!",
+                                status: 'success',
+                                duration: 9000,
+                                isClosable: true,
+                              })
                         } else {
                             error.request = "Não possível cadastrar a nova Matéria!";
                             setError({ ...error });
@@ -107,47 +138,79 @@ export const Subject = () => {
                 <C.Content>
                     <div>
                         <C.SubjectArea>
-                            <C.Input
-                                type="text"
-                                placeholder="Nova Matéria"
-                                required
-                                onChange={(e) => { setSubject(e.target.value) }} />
-                            <C.Button onClick={handleSubmit} disabled={!subject}>{
-                                loading ? (
-                                    <Dots />
-                                ) : "Cadastrar"
-                            }</C.Button>
+                            <InputGroup size='md'>
+                                <InputLeftAddon children='Título' />
+                                <Input
+                                    type="text"
+                                    placeholder="Nova Matéria"
+                                    required
+                                    onChange={(e) => { setSubject(e.target.value) }}
+                                />
+                                <InputRightElement children={<CheckIcon color={subject ? COLORS.green : COLORS.red} />} />
+                            </InputGroup>
+
+
+                            <Button
+                                onClick={handleSubmit}
+                                disabled={!subject}
+                                rightIcon={<ArrowForwardIcon />}
+                                colorScheme={COLORS.green}
+                                variant='outline' ml="10"
+                                _focus={{
+                                    outline: 'none'
+                                }} >
+                                {
+                                    loading ? (
+                                        <Dots />
+                                    ) : "Cadastrar"
+                                }
+                            </Button>
                         </C.SubjectArea>
                         <C.Error>{error.subject}</C.Error>
                         <C.Successfu>{successful.msg}</C.Successfu>
                     </div>
 
-                    <C.TableArea>
+                    <C.TableArea style={{ border: "solid 1px #DDD" }}>
 
-                        <C.Table>
-                            <tr className="table__header">
-                                <th>#</th>
-                                <th>Matéria</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
+                        <Table size='sm'>
+                            <TableCaption>Tabela de Matérias - InoLab </TableCaption>
+                            <Thead background={COLORS.black}>
+                                <Tr>
+                                    <Th textAlign="center" textColor={COLORS.white}>#</Th>
+                                    <Th textColor={COLORS.white}>Matéria</Th>
+                                    <Th textAlign="center" textColor={COLORS.white}>Status</Th>
+                                    <Th textAlign="center" textColor={COLORS.white}>Ações</Th>
+                                </Tr>
+                            </Thead>
 
-                            {
-                                valuesSubjects?.map((item, index) => {
-                                    return (
-                                        <Fragment key={index}>
-                                            <tr>
-                                                <td>{item.id}</td>
-                                                <td>{item.name}</td>
-                                                <td>{item.show.toString()}</td>
-                                                <td>Botton</td>
-                                            </tr>
-                                        </Fragment>
-                                    )
-                                })
-                            }
+                            <Tbody>
+                                {
+                                    valuesSubjects?.map((item, index) => {
+                                        return (
+                                            <Fragment key={index}>
+                                                <Tr>
+                                                    <Td fontWeight="bold" width="60px" bg="#DDD" textAlign="center">{item.id}</Td>
+                                                    <Td>{item.name}</Td>
+                                                    <Td width="60px" textAlign="center"><IconButton aria-label='show subjects' icon={item.show ? (<ViewIcon color={COLORS.white} />) : (<ViewOffIcon />)} bg={item.show ? COLORS.blue : COLORS.red} /></Td>
+                                                    <Td width="60px" textAlign="center"><IconButton aria-label='edit subjects' icon={<EditIcon color={COLORS.white} />} bg={COLORS.yellow} /></Td>
+                                                </Tr>
+                                            </Fragment>
+                                        )
+                                    })
+                                }
+                            </Tbody>
 
-                        </C.Table>
+                            <Tfoot>
+                                <Tr>
+                                    <Th>#</Th>
+                                    <Th>Matéria</Th>
+                                    <Th>Status</Th>
+                                    <Th>Ações</Th>
+                                </Tr>
+
+                            </Tfoot>
+
+                        </Table>
                     </C.TableArea>
                 </C.Content>
             </Container>

@@ -3,12 +3,15 @@ import styled from 'styled-components';
 
 export const HeaderDashboard = styled.header`
     width: 100%;
+    width: 1800px;
+
+    margin-left: auto;
+    margin-right: auto;
     height: 45px;
-    background-color: #00C880;
+    background-color: #121214;
 
-    margin-top: 10px;
-
-    border-radius: 0 0 5px 5px;
+    z-index: 900;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,7 +25,9 @@ export const LinkHeader = styled(Link)`
     outline: none;
     overflow: none;
 
-    color: #121214;
+    color: #FAFAFA;
+
+    font-weight: bold;
 
     margin-right: 10px;
     margin-top: 0;

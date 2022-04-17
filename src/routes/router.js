@@ -6,13 +6,11 @@ import {
 } from "react-router-dom";
 import { DashboardHeader } from "../components";
 
-import { NotFound, Login, Home, Subject } from "../views";
+import { NotFound, Login, Home, Subject, Module, Content, Question } from "../views";
 
 export const appRoutes = () => {
     return (
         <Routes>
-
-     
 
             <Route exact path="/auth">
                 <Route exact path="sign-in" element={<Login />} />
@@ -23,6 +21,9 @@ export const appRoutes = () => {
             <Route exact path="/dashboard" element={<DashboardHeader/>} >
                 <Route index element={<Home/>}/>
                 <Route exact path="subject" element={<Subject/>}/>
+                <Route exact path="module" element={<Module/>}/>
+                <Route exact path="content/:id_module" element={<Content/>}/>
+                <Route exact path="question/:id_content" element={<Question/>}/>
             </Route>
 
             <Route exact path="*" element={<NotFound />} />
