@@ -14,7 +14,8 @@ import {
     Select,
     VStack,
     Stack,
-    Button
+    Button,
+    RadioGroup
 } from '@chakra-ui/react';
 import { Container } from "../../components";
 import *as C from './styles';
@@ -25,7 +26,7 @@ import ReactQuill from "react-quill";
 
 export const Question = () => {
 
-    const {id_content} = useParams();
+    const { id_content } = useParams();
 
     const [altOne, setAltOne] = useState({
         body: null,
@@ -44,44 +45,44 @@ export const Question = () => {
         correct: false
     });
 
-    const [time, setTime] = useState();
-    const [body, setBody] = useState();
+    const [time, setTime] = useState('');
+    const [body, setBody] = useState('');
     const [difficulty, setDifficulty] = useState();
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async () => {
         setLoading(true);
-        if(time && body && difficulty){
-            if(altFour.body && altOne.body && altThree.body && altTow.body){
-                if(altFour.correct || altOne.correct || altThree.correct || altTow.correct){
+        if (time && body && difficulty) {
+            if (altFour.body && altOne.body && altThree.body && altTow.body) {
+                if (altFour.correct || altOne.correct || altThree.correct || altTow.correct) {
 
                     let question_array = [altOne, altTow, altThree, altFour];
 
-                    await postQuestion({time: Number(time), body, difficulty: Number(difficulty), question_array, id_content: Number(id_content)}).then((response) => {
+                    await postQuestion({ time: Number(time), body, difficulty: Number(difficulty), question_array, id_content: Number(id_content) }).then((response) => {
                         alert('DEU CERTO');
-                    setLoading(false);
+                        setLoading(false);
 
                     }).catch((reject) => {
                         alert('DEU Errado');
-                    setLoading(false);
+                        setLoading(false);
 
                     });
 
 
-                }else{
+                } else {
                     setLoading(false);
                     //error
                 }
-            }else{
+            } else {
                 setLoading(false);
                 //error
             }
 
-        }else{
+        } else {
             setLoading(false);
             //error
         }
-    } 
+    }
 
     return (
         <Fragment>
@@ -104,7 +105,7 @@ export const Question = () => {
                                 <Input
                                     type="number"
                                     maxW={150}
-                                    
+
                                     onChange={(e) => {
                                         setTime(e.target.value)
                                     }}
@@ -136,14 +137,15 @@ export const Question = () => {
 
                     <Text fontSize="2xl" mt="15px" mb="15px">Alternativas</Text>
                     <Divider orientation='horizontal' height="1px" bg={COLORS.black} mb="15px" />
-
                     <FormControl isRequired>
                         <FormLabel style={{ display: 'flex', alignItems: 'center' }} htmlFor="alternativa_1">
                             <Radio
+                                value={altOne.correct}
+                                isDisabled={!body || body === '<p><br></p>'}
                                 colorScheme={`green`}
                                 isChecked={altOne.correct}
-                                onClick={(e) => {
-                                    if (altOne.correct == true) {
+                                onChange={(e) => {
+                                    if (altOne.correct === true) {
                                         altOne.correct = false;
                                         setAltOne({ ...altOne });
                                     } else {
@@ -162,6 +164,7 @@ export const Question = () => {
                             <span style={{ marginLeft: '10px' }}>Alternativa (<Kbd>I</Kbd>) </span>
                         </FormLabel>
                         <Textarea
+                            isDisabled={!body || body === '<p><br></p>'}
                             borderColor={altOne.correct ? COLORS.green : COLORS.red}
                             placeholder="Descreva aqui a sua alternativa!"
                             onChange={(e) => {
@@ -173,8 +176,10 @@ export const Question = () => {
                         <FormLabel style={{ display: 'flex', alignItems: 'center' }} htmlFor="alternativa_2" mt="15px">
                             <Radio colorScheme={`green`}
                                 isChecked={altTow.correct}
-                                onClick={(e) => {
-                                    if (altTow.correct == true) {
+                                value={altTow.correct}
+                                isDisabled={!body || body === '<p><br></p>'}
+                                onChange={(e) => {
+                                    if (altTow.correct === true) {
                                         altTow.correct = false;
                                         setAltTwo({ ...altTow });
                                     } else {
@@ -193,6 +198,7 @@ export const Question = () => {
                             <span style={{ marginLeft: '10px' }}>Alternativa (<Kbd>II</Kbd>) </span>
                         </FormLabel>
                         <Textarea
+                            isDisabled={!body || body === '<p><br></p>'}
                             borderColor={altTow.correct ? COLORS.green : COLORS.red}
                             placeholder="Descreva aqui a sua alternativa!"
                             onChange={(e) => {
@@ -204,8 +210,10 @@ export const Question = () => {
                         <FormLabel style={{ display: 'flex', alignItems: 'center' }} htmlFor="alternativa_3" mt="15px">
                             <Radio checked={false} colorScheme={`green`}
                                 isChecked={altThree.correct}
-                                onClick={(e) => {
-                                    if (altThree.correct == true) {
+                                value={altThree.correct}
+                                isDisabled={!body || body === '<p><br></p>'}
+                                onChange={(e) => {
+                                    if (altThree.correct === true) {
                                         altThree.correct = false;
                                         setAltThree({ ...altThree });
                                     } else {
@@ -224,6 +232,7 @@ export const Question = () => {
                             <span style={{ marginLeft: '10px' }}>Alternativa (<Kbd>III</Kbd>) </span>
                         </FormLabel>
                         <Textarea
+                            isDisabled={!body || body === '<p><br></p>'}
                             borderColor={altThree.correct ? COLORS.green : COLORS.red}
                             placeholder="Descreva aqui a sua alternativa!"
                             onChange={(e) => {
@@ -235,8 +244,10 @@ export const Question = () => {
                         <FormLabel style={{ display: 'flex', alignItems: 'center' }} htmlFor="alternativa_4" mt="15px">
                             <Radio colorScheme={`green`}
                                 isChecked={altFour.correct}
-                                onClick={(e) => {
-                                    if (altFour.correct == true) {
+                                value={altFour.correct}
+                                isDisabled={!body || body === '<p><br></p>'}
+                                onChange={(e) => {
+                                    if (altFour.correct === true) {
                                         altFour.correct = false;
                                         setAltFour({ ...altFour });
                                     } else {
@@ -255,6 +266,7 @@ export const Question = () => {
                             <span style={{ marginLeft: '10px' }}>Alternativa (<Kbd>IV</Kbd>) </span>
                         </FormLabel>
                         <Textarea
+                            isDisabled={!body || body === '<p><br></p>'}
                             borderColor={altFour.correct ? COLORS.green : COLORS.red}
                             placeholder="Descreva aqui a sua alternativa!"
                             onChange={(e) => {
