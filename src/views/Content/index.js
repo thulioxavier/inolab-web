@@ -12,7 +12,6 @@ import {
     FormControl,
     Text
 } from '@chakra-ui/react';
-import createImagePlugin from '@draft-js-plugins/image';
 import { EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { COLORS, Editor } from "../../utils";

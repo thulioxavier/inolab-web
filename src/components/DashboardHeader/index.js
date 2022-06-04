@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import { Container } from "../Container";
 import *as C from './styles';
 import { ChakraProvider } from '@chakra-ui/react'
 

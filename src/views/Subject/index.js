@@ -14,7 +14,6 @@ import {
     TableCaption,
     IconButton,
     Input,
-    Stack,
     Button,
     InputGroup,
     InputLeftAddon,

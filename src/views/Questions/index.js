@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from "react";
 import {
     Text,
-    toast,
-    useToast,
     FormControl,
     FormLabel,
     Textarea,
@@ -12,10 +10,8 @@ import {
     Input,
     HStack,
     Select,
-    VStack,
     Stack,
     Button,
-    RadioGroup
 } from '@chakra-ui/react';
 import { Container } from "../../components";
 import *as C from './styles';

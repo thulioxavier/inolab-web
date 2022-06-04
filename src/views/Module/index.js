@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Container } from "../../components";
-import { getContents, getModules, getSubjects, postModule, postSubject } from "../../services/server";
+import { getContents, getModules, getSubjects, postModule } from "../../services/server";
 import { Dots } from "react-activity";
 import "react-activity/dist/library.css";
 import {
@@ -14,15 +14,12 @@ import {
     TableCaption,
     IconButton,
     Input,
-    Stack,
-    Button,
     InputGroup,
     InputLeftAddon,
     InputRightAddon,
     InputRightElement,
     Select,
     Text,
-    toast,
     useToast
 } from '@chakra-ui/react';
 
@@ -30,7 +27,7 @@ import {
 import *as C from './styles';
 import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../utils";
-import { ViewOffIcon, ViewIcon, EditIcon, AddIcon, CheckIcon, LinkIcon } from "@chakra-ui/icons";
+import { EditIcon, AddIcon, CheckIcon, LinkIcon } from "@chakra-ui/icons";
 
 export const Module = () => {
     const toast = useToast();
