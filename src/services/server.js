@@ -65,6 +65,22 @@ export const postQuestion = async (values) => {
     return json.data;
 };
 
+export const putStatusSubject = async (values) => {
+    let json;
+
+    try {
+        await API.put(`/subject/update/status/${values.id}`, values ).then((response) => {
+            json = response;
+        }).catch((reject) => {
+            json = reject;
+        })
+    } catch (e) {
+        console.log(e);
+    }
+
+    return json.data;
+};
+
 export const getSubjects = async () => {
     let json;
 

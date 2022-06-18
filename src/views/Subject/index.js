@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Container } from "../../components";
-import { getSubjects, postSubject } from "../../services/server";
+import { getSubjects, postSubject, putStatusSubject } from "../../services/server";
 import { Dots } from "react-activity";
 import "react-activity/dist/library.css";
 import {
@@ -51,7 +51,6 @@ export const Subject = () => {
         try {
             await getSubjects().then((response) => {
                 setValuesSubjects(response.data);
-                console.log(response.data);
             }).catch((reject) => {
 
             });
@@ -130,6 +129,18 @@ export const Subject = () => {
         }
     }
 
+    const handlerUpdateStatusSubject = async (id, status) => {
+        setLoading(true);
+        try {
+            await putStatusSubject({id: id, status: status});
+            handleGetSubjects()
+        } catch (error) {
+            console.log(error)
+        }finally{
+            setLoading(false);
+        }
+    }
+
 
     return (
         <Fragment>
@@ -190,7 +201,7 @@ export const Subject = () => {
                                                 <Tr>
                                                     <Td fontWeight="bold" width="60px" bg="#DDD" textAlign="center">{item.id}</Td>
                                                     <Td>{item.name}</Td>
-                                                    <Td width="60px" textAlign="center"><IconButton aria-label='show subjects' icon={item.show ? (<ViewIcon color={COLORS.white} />) : (<ViewOffIcon />)} bg={item.show ? COLORS.blue : COLORS.red} /></Td>
+                                                    <Td width="60px" textAlign="center"><IconButton aria-label='show subjects' onClick={() => {handlerUpdateStatusSubject(item.id, !item.show)}} icon={item.show ? (<ViewIcon color={COLORS.white} />) : (<ViewOffIcon />)} bg={item.show ? COLORS.green : COLORS.red} /></Td>
                                                     <Td width="60px" textAlign="center"><IconButton aria-label='edit subjects' icon={<EditIcon color={COLORS.white} />} bg={COLORS.yellow} /></Td>
                                                 </Tr>
                                             </Fragment>

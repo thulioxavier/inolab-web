@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { DashboardHeader } from "../components";
 
-import { NotFound, Login, Home, Subject, Module, Content, Question } from "../views";
+import { NotFound, Login, Home, Subject, Module, Content, Question, InoLab } from "../views";
 
 export const appRoutes = () => {
     return (
@@ -25,6 +25,8 @@ export const appRoutes = () => {
                 <Route exact path="content/:id_module" element={<Content/>}/>
                 <Route exact path="question/:id_content" element={<Question/>}/>
             </Route>
+
+            <Route exact path="/" element={<InoLab/>}/>
 
             <Route exact path="*" element={<NotFound />} />
 

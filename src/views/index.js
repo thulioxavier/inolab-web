@@ -5,6 +5,7 @@ import { Subject } from "./Subject";
 import {Module} from './Module';
 import {Content} from './Content';
 import {Question} from './Questions';
+import { InoLab } from "./InoLab";
 
 export {
     Login,
@@ -13,5 +14,6 @@ export {
     Subject,
     Module,
     Content,
-    Question
+    Question,
+    InoLab
 }
