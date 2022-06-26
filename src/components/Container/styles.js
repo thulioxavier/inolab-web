@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    max-width: 1790px;
+    max-width: 1200px;
     min-height: 100vh;
-    background-color: ${({color}) => (color ? color : '#fafafa')};
+    background-color: ${({color}) => (color ? color : '#f0f0f5')};
 
     margin: auto;
 

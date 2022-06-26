@@ -144,7 +144,7 @@ export const Subject = () => {
 
     return (
         <Fragment>
-            <Container>
+            <Container color={"#fff"}>
                 <C.Content>
                     <div>
                         <C.SubjectArea>

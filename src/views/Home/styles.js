@@ -49,7 +49,7 @@ export const DashboardInfo = styled.div`
     overflow-x:scroll;
     overflow-y: hidden;
     
-    background-color: #202024;
+    background-color: #fff;
 
 `;
 

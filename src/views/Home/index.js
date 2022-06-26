@@ -6,7 +6,7 @@ import *as C from './styles';
 export const Home = () => {
     return(
         <Fragment>
-            <Container display="flex" justifyContent="top" alignItems="center" flexDirection="column">
+            <Container display="flex" justifyContent="top" alignItems="center" flexDirection="column" color={"#FFF"}>
                 <C.DashboardInfo>
                     <C.CardInfo>
                         <C.HeaderCard color="#00C880"/>

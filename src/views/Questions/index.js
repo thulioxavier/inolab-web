@@ -82,7 +82,7 @@ export const Question = () => {
 
     return (
         <Fragment>
-            <Container>
+            <Container color={"#fff"}>
                 <C.Content>
                     <Text fontSize="2xl" mt="15px" mb="15px">Cadastrar nova questão:</Text>
 

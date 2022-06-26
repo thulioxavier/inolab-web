@@ -61,8 +61,7 @@ export const Login = () => {
             <Container display="flex" justifyContent="center" alignItems="center">
                 <C.ContentForm>
                     <C.FormInfo>
-                        <C.Logo src={IMG.Logo} />
-                        <C.Title>InoLab</C.Title>
+                        <C.Logo src={IMG.LogoVertical} />
                         <C.Info>Acesso administrativo</C.Info>
                     </C.FormInfo>
                     <C.FormArea>

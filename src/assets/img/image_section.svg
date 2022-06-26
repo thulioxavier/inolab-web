@@ -1,7 +1,9 @@
-<svg width="737" height="1020" viewBox="0 0 737 1020" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect opacity="0.7" width="737" height="1020" fill="url(#pattern0)"/>
-<rect x="2.5" y="2.5" width="732" height="1015" fill="url(#pattern1)"/>
-<rect x="43.5" y="17" width="671" height="950" fill="url(#pattern2)"/>
+<svg width="814" height="1187" viewBox="0 0 814 1187" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect opacity="0.7" x="77" width="737" height="1020" fill="url(#pattern0)"/>
+<rect x="79.5" y="2.5" width="732" height="1015" fill="url(#pattern1)"/>
+<g filter="url(#filter0_d_4404_218)">
+<rect x="120.5" y="17" width="671" height="950" fill="url(#pattern2)" shape-rendering="crispEdges"/>
+</g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_4404_218" transform="scale(0.000678426 0.000490196)"/>
@@ -9,6 +11,16 @@
 <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image1_4404_218" transform="scale(0.00068306 0.000492611)"/>
 </pattern>
+<filter id="filter0_d_4404_218" x="0.5" y="17" width="791" height="1170" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-60" dy="160"/>
+<feGaussianBlur stdDeviation="30"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4404_218"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4404_218" result="shape"/>
+</filter>
 <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image2_4404_218" transform="scale(0.000372578 0.000263158)"/>
 </pattern>

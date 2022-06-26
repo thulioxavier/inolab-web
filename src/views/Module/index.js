@@ -206,7 +206,7 @@ export const Module = () => {
 
     return (
         <Fragment>
-            <Container>
+            <Container color={"#fff"}>
                 <C.Content>
                     <div>
                         <Text fontSize='2xl' >Cadastrar novo módulos:</Text>
@@ -217,7 +217,7 @@ export const Module = () => {
                                 <InputLeftAddon children='Título' />
                                 <Input
                                     type="text"
-                                    placeholder="Nova Matéria"
+                                    placeholder="Novo módulo"
                                     required
                                     onChange={(e) => { setModule(e.target.value) }} />
                                 <InputRightElement children={<CheckIcon color={module ? COLORS.green : COLORS.red} />} />

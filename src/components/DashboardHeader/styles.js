@@ -25,7 +25,7 @@ export const LinkHeader = styled(Link)`
     outline: none;
     overflow: none;
 
-    color: #FAFAFA;
+    color: #f0f0f5;
 
     font-weight: bold;
 

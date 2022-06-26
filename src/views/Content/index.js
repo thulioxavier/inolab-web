@@ -91,7 +91,7 @@ export const Content = () => {
 
     return (
         <Fragment>
-            <Container>
+            <Container color={"#fff"}>
                 <C.Content style={{ marginBottom: 100 }}>
                     <Text fontSize={'2xl'}>Cadastrar novo conteúdo:</Text>
                     <FormControl isRequired>
